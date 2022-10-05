@@ -30,8 +30,8 @@ export default class RNUrlPreview extends React.PureComponent {
           linkImg:
             data.images && data.images.length > 0
               ? data.images.find(function(element) {
-                  return element.includes('.png') || element.includes('.jpg') || element.includes('.jpeg');
-                })
+                return ['.png', '.jpg', '.jpeg', '.PNG', '.JPG', '.JPEG'].filter(key => element.includes(key)).length
+              })
               : undefined,
           linkFavicon: data.favicons && data.favicons.length > 0 ? data.favicons[data.favicons.length - 1] : undefined,
         });
